@@ -1,37 +1,86 @@
-The frontend will start on `http://localhost:3000`
+# Spreadsheet RAG
 
-## Using the Application
+> Note: This project was completed as an assignment from Clienter AI.
 
-1. Open your browser and go to `http://localhost:3000`
-2. Upload your data file through the interface
-3. Enter your query in the input field
-4. The system will process your query using RAG and return relevant responses
+A Retrieval-Augmented Generation (RAG) system for querying spreadsheet data using natural language, built with Next.js and FastAPI.
 
-## API Endpoints
+## Live Demo
+- Frontend: [spreadsheet-rag.vercel.app]
+- Backend: [spreadsheet-rag-production.up.railway.app](https://spreadsheet-rag-production.up.railway.app)
 
-- `POST /api/upload` - Upload data file
-- `POST /api/query` - Process queries against the uploaded data
+## Features
+- 📊 Upload and analyze spreadsheet data
+- 💬 Natural language querying of spreadsheet content
+- 🤖 Powered by Google Gemini API
+- 🚀 Real-time responses using RAG architecture
+- ⚠️ Note: Sometimes data might not produce proper answers due to AI agents handling the interpretation
 
-## Technologies Used
+## Tech Stack
 
-- **Backend**
-  - Flask
-  - Google Gemini API
-  - Python RAG implementation
+### Backend
+- FastAPI
+- Google Gemini API
+- Python RAG implementation
+- Railway for deployment
 
-- **Frontend**
-  - Next.js 13+
-  - TailwindCSS
-  - TypeScript
+### Frontend
+> Note: I'm new to frontend development, so the implementation might not follow traditional best practices.
 
-## Development
+- Next.js 13+
+- TailwindCSS
+- TypeScript
+- Vercel for deployment
 
-- Backend code is in the `app` directory
-- Frontend code is in the `rag-frontend` directory
-- API routes are defined in `app/routes/`
+## Local Development
 
-## Important Notes
+### Prerequisites
+- Node.js 16+ (Note: Some Next.js features might require newer versions)
+- Python 3.9+ (Required for Google Gemini API compatibility)
+- Google Gemini API key
 
-- Make sure both backend and frontend servers are running simultaneously
-- Keep your Gemini API key secure and never commit it to version control
-- Large files should be processed in chunks to avoid memory issues
+### Backend Setup
+1. Clone the repository
+2. Navigate to the backend directory:
+   ```bash
+   cd rag-backend
+   ```
+3. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+4. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. Create a `.env` file and add your Google Gemini API key:
+   ```
+   GOOGLE_API_KEY=your_api_key_here
+   ```
+6. Start the backend server:
+   ```bash
+   uvicorn main:app --reload
+   ```
+   The backend will be available at `http://localhost:8000`
+
+### Frontend Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd rag-frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env.local` file with the backend URL:
+   ```
+   NEXT_PUBLIC_API_URL=http://localhost:8000
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   The frontend will be available at `http://localhost:3000`
+
+## Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
